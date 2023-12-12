@@ -1,0 +1,375 @@
+Type Conversion
+
+age = Number(age);
+
+x = Number("3.14");
+x = String(3.14);
+x = Boolean(""); -> empty is false, if we type anything in this then it will give the true.
+
+----------------------
+String MEthods
+
+name.charAt(0) -> to find the character at index 0
+
+indexOf("r") -> to find the index
+
+lastIndexOf("r")
+
+-------------------------------
+
+let phoneNumber = "123-456-7890";
+
+phoneNumber = phoneNumber.replaceAll("-", "/"); -> it will replace - with ,
+
+if we just want to eliminate - then just type ("-", "")
+
+--------------------------------------------------
+			Slice
+
+let fullname ="Rahul Karadwal";
+let firstname;
+let lastname;
+
+firstname = fullname.slice(0, 5);
+lastname = fullname.slice(6); -> if we dont give any second parameter then compiler thinks that we have to slice till last.
+
+------------------------------------------------------
+
+			Template Literals
+
+let username = "Rahul";
+let item = 3;
+let total = 50;
+
+// console.log("Hello", username);
+// console.log("Number of itmes :",item);
+// console.log("Total :",total);
+
+console.log(`Hello ${username}`);
+console.log(`Number of items : ${item}`);
+console.log(`Total $${total}`);
+
+
+let text = `Hello ${username} Number of items : ${item} Total $${total}`;
+
+document.getElementById("pay").innerHTML= text;
+
+----------------------------------------------------------
+
+
+toLocaleString() -> returns a string with a language sensitive representation of this number
+
+number.toLocaleString(locale, {options});
+
+'locale' = specify that languae (undefined = default browser language
+
+'options' = object with formattong options
+
+
+let num = 123456.3445;
+
+// num = num.toLocaleString("en-US");
+
+num = num.toLocaleString("hi-IN");
+console.log(num);
+
+// num = num.toLocaleString("en-US", {style: "currency", currency: "USD"});
+
+num = num.toLocaleString("hi-IN", {style: "currency", currency: "INR"});
+console.log(num);
+
+num = num.toLocaleString(undefined, {style:"unit", unit:"celsius"});
+
+
+-------------------------------------------------------------------------
+
+			ARRAYS
+
+let fruits = ["A", "B"];
+
+fruits.push("C"); // add an element
+fruits.pop();  // removies last element
+fruits.unshift("D"); // add element to beginning
+fruits.shift(); // remove element form the beginning
+
+
+-------------------------------------------------------------------------
+
+for (let i = 0; i < prices.lenght; i++)
+{
+	console.log(prices[i]);
+}
+
+Alternative improved method
+
+for(let i of prices){
+	console.log(i);
+}
+
+
+------------------------------------------------------------------------
+			2D Arrays
+			
+let fruits = ["apples", "oragnes", "bananas"];
+let vegetables = ["carrots", "onions", "potatos"];
+let meats = ["eggs", "chicken", "fish"];
+
+let groceryList = [fruits, vegetables, meats];
+
+for (let list of groceryList){
+	for (let food of list){
+	console.log(food);
+}	
+}
+
+we can change elements like this:
+
+gorceryList[1][1] = "mango";
+
+-----------------------------------------------------------------------
+
+				Spread Operator (...)
+
+console.log(...number);
+
+allow an iterable such an array or string to be expanded in places where zero or more arguments are expected (unpacks the elements)
+-----------------------------------------------------------------------
+
+let n = [1,2,3,4,5,6,7,8]
+let max = Math.max(n);
+console.log(max); -> we cant get the output like this;
+
+let max - Math.max(...n);
+this is how we get the output.
+
+------------------------------------------------------------------------
+
+
+let class1 = ["spngebob", "patrick", "Sandy"];
+let class2 = ["Squidward", "Mr.Lrabs", "Plankton"];
+
+class1.push(class2); -> it will just add the whole array of class2 instead of adding its elements.
+
+
+class1.push(...class2);
+this will add the elements of class2 in class 1
+-------------------------------------------------------------------------------
+						REST PARAMETERS
+
+represents an indefinite number of paramerters
+
+
+
+let a =1;
+let b=2;
+let c=3;
+let d=4;
+
+console.log(sum(a,b,c,d));
+
+function sum(...numbers){
+	let total = 0;
+	for(let number of numbers){
+	total += number;
+}
+return total;
+}
+
+-------------------------------------------------------------------------------
+
+
+							CALLBACK
+
+a function passed as an argument to another funciton. 
+It ensures that a funciton is not going to run before a task is completed.
+Helps us develop asynchronous code. (When on efucntion has to wait for another fucntion) that helps us avoid errors and potential problems. Ex. wait for a file to upload.
+
+
+let total = sum(2,3, displayhtml);
+
+function sum(x,y, callback){
+    let result =  x+y;
+    callback(result);
+
+}
+
+function displayconsole(output){
+    console.log(output);
+}
+
+function displayhtml(output){
+    document.getElementById("mylabel").innerHTML = output;
+}
+
+
+
+
+
+....................................................................
+
+				array.forEach()
+
+executes a provided callback function once for each array element
+
+
+
+
+let students = ["spongebob", "patrick", "squidward"];
+students.forEach(capatalize);
+students.forEach(print);
+
+
+function capatalize(element, index, array){
+    array[index] = element[0].toUpperCase() + element.substring(1);
+}
+function print(element){
+console.log(element);
+}
+
+// console.log(students[0]);
+
+
+....................................................................
+
+					array.map()
+
+It executes a provided callback function once each array element and creates a new array
+
+
+-------------------------------------------------------------------
+
+				Convert JavaScript object to Json
+
+JSON.stringify(object_name);
+
+				convert json string to javascript object
+
+JSON.parse(jsonstring);
+
+
+
+--------------------------------------------------------------------
+
+				Save data to local storage
+
+this is to store : localStorage.setItem('message', 'hello');
+this is to get : localStorage.getItem('message') -> So we will get hello;
+
+
+
+---------------------------------------------------------------------
+
+const object4 = {
+message: 'Good job',
+price: 799
+};
+
+const message = object4.message;
+we can also do like this -> 
+
+const {message, price} = object4;
+
+console.log(message);
+console.log(price);
+
+ORRRR
+
+const name = todoObject.name; -> cosnt {name } = todoObject;
+const dueDate = todoObject.dueDate; -> const {dueDate} = todoObject;
+
+here {name} is the new varialble we are assinghing and todoObject is the object
+which has name variable. so according to the object property
+we can assign the value of the varable directly by creating like this.
+
+const {name, dueDate } = todoObject;
+
+also called shorthand property syntax
+
+
+
+not so clear but try practical
+
+const object5 ={
+message: message
+(if variable and property name is same then just write only one )
+
+//message
+};
+
+---------------------------------------------------------------------
+
+						Destructuring 
+
+const arr = [1,2,2,3,4]
+
+to get the first or any value we usually do -> const arrrr = arr[0];
+
+but we can do -> const [firstValue, secondValue] = [1,2,3,4,5];
+
+-----------------------------------------------------------------
+
+					Functions 
+If we have variable to access the functions then we dont need the name of the functions so we can remove the name of the function.
+
+So if our function does not have any name it is called annonymys function.
+
+But with annonymus functions hoisting does not work
+----------------------------------------------------------
+
+Hoisting means we can call the function anywhere even before creating the function 
+but in case of annonyms function we need to create function in varaiable then 
+we can call it.
+
+--------------------------------------------------------------------------------
+
+			Insert Adjacent HTML, Element, Text
+
+        first.insertAdjacentHTML('beforebegin', '<div class="test">forebegin</div>');
+        first.insertAdjacentHTML('beforeend', '<div class="test">beforeend</div>');
+        first.insertAdjacentHTML('afterbegin', '<div class="test">afterbegin</div>');
+        first.insertAdjacentHTML('afterend', '<div class="test">afterend</div>');
+
+
+---------------------------------------------------------------------------------
+
+			Changing Classes using javascript
+
+< div  id = "first" class = "pink">hello </div>
+
+first.className = "red" (here i have changed the name of the class to red or shayad added red class);
+
+
+to see all the classes 
+
+first.classList-> this will show all the classes
+
+first.classList.remove("class_name"); -> to remove the particular class 
+
+first.classList.add("class_name"); -> to add the class
+
+first.classList.toggle("red"); -> if class is already present then it will remove 
+if it is not present then it will add the red class.
+
+first.classList.contains("red") -> check if class exists or not -> return true or false
+
+-------------------------------------------------------------------------------------
+
+					Set Timeout
+
+const sum = (a,b) =>{
+console.log("Yes i am running" (a+b));
+a+b;
+}
+
+setTimeout(sum,1000,1,2);
+
+where 1,2 are the arguments for (a,b);
+
+-------------------------------------------------------------------------------------
+
+
+
+
+
+ 
+

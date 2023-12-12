@@ -1,0 +1,74 @@
+fImage ->
+object-fit : contain (cover); -> will contain the photo in specified height width area
+object-position: right, top, left, bottom;
+
+
+display: inline-block -> convert block lvl element to inline-block level element
+
+displya: block
+
+
+display: grid;
+grid-template-column: 100px 100px (columns);
+column-gap: 15px
+row-gap: 25px
+
+************
+grid-template-column: 100px 1fr (1fr-> will take the all remaining space)
+
+100px 1fr 1fr (these fr will divide the space equally)
+
+100px 1fr 2fr (2fr will have the twice space from 1fr)
+************
+
+display: flex;
+flex-direction: row;
+and remaining spaces -> flex: 1;
+
+justify-content: space-between/start/end;
+
+align-items: strech/start/end/center;
+
+
+position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+
+
+it is fixed it doesnt move.
+
+------------------------------
+
+position: absolute
+
+fixed= elements placed in the browser window
+brower window doesnt move it is just fixed
+
+absolute= elements placed on the page
+it moves when we scroll the page
+
+when we scroll the page absolute elements appear on the fixed 
+header or elements so to tacle this situation we use z-index
+
+by default elemnts has z-index 0 
+with more priority of z-index appears on the top of less prioroti of z-index
+
+z-index: 1;
+
+----------------------------------------
+
+**** imp feautre
+
+we place absolute element in fixed element.
+
+and it requires top,bottom parameters accordingly fixed elemnets.
+
+---------------------
+
+when pos absolute is in the pos relative then 
+it will be positioned in the element not in the page.
+
+
+and pos relative causes the element to display normally.
